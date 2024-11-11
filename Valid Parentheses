@@ -1,0 +1,22 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+    
+        bracket={")":"(","]":"[","}":"{"};
+        stack = [];
+
+        for str in s:
+            if str in bracket:
+                ele = stack.pop() if stack else'#';
+                
+                if bracket[str]!=ele:
+                    return False
+                
+            else:
+                stack.append(str);
+            
+
+        return not stack
